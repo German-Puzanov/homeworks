@@ -23,7 +23,6 @@ public class LabaSixthFristTask {
                 }
             }
             if (validArr) {
-                System.out.println(Arrays.toString(arr));
                 break;
             }
         }
@@ -57,9 +56,9 @@ public class LabaSixthFristTask {
                 index += 1;
             }
         }
-        System.out.println(sumArr);
-        System.out.println(arr.length);
-        System.out.println(Arrays.toString(outputArr));
+        System.out.println("Сумма элементов массива: " + sumArr);
+        System.out.println("Длинна массива: " + arr.length);
+        System.out.println("Уникальные элементы массива: " + Arrays.toString(outputArr));
     }
 }
 
