@@ -3,14 +3,14 @@ import java.util.Scanner;
 public class LabaFifthSecondTask {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите числа через пробел: ");
         String entry = scanner.nextLine().trim();
 
         double result = averageNum(entry, 0, 0);
         if (result == (int) result) {
-            System.out.printf("%d", (int) result);
-        }
-        else{
-            System.out.printf("%s", result);
+            System.out.printf("Среднее арифметическое чисел = " + "%d", (int) result);
+        } else {
+            System.out.printf("Среднее арифметическое чисел = " + "%s", result);
         }
     }
 
