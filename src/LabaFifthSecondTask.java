@@ -4,7 +4,14 @@ public class LabaFifthSecondTask {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String entry = scanner.nextLine().trim();
-        System.out.println(averageNum(entry, 0, 0));
+
+        double result = averageNum(entry, 0, 0);
+        if (result == (int) result) {
+            System.out.printf("%d", (int) result);
+        }
+        else{
+            System.out.printf("%s", result);
+        }
     }
 
     static double averageNum(String text, int value, int count) {
