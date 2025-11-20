@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class FirstTask {
+public class LabaSecondFirstTask {
     public static void main(String[] args) {
 
         String resultMinutes,resultHours;
@@ -43,14 +43,14 @@ public class FirstTask {
         int stopMinutes = totalRideMinutes - minutes;
 
         if (stopMinutes < 10){
-            resultMinutes = "0" + Integer.toString(stopMinutes);
+            resultMinutes = "0" + stopMinutes;
         }
         else{
             resultMinutes = Integer.toString(stopMinutes);
         }
 
         if (stopHours < 10){
-            resultHours = "0" + Integer.toString(stopHours);
+            resultHours = "0" + stopHours;
         }
         else{
             resultHours = Integer.toString(stopHours);
