@@ -30,9 +30,9 @@ public class LabaSixthSecondTask {
         }
         int resultLenght = 0;
         System.out.println(Arrays.toString(numArr));
-        for (int i = 0; i < strArr.length; i++) {
-            for (int j = 0; j < numArr.length; j++) {
-                if (strArr[i].length() == numArr[j]) {
+        for (String s : strArr) {
+            for (int i : numArr) {
+                if (s.length() == i) {
                     resultLenght += 1;
                 }
             }
@@ -41,16 +41,16 @@ public class LabaSixthSecondTask {
         System.out.println(resultLenght);
         String[] result = new String[resultLenght];
         int index = 0;
-        for (int i = 0; i < strArr.length; i++) {
+        for (String s : strArr) {
             boolean rigthLenght = false;
-            for (int j = 0; j < numArr.length; j++) {
-                if (strArr[i].length() == numArr[j]) {
+            for (int i : numArr) {
+                if (s.length() == i) {
                     rigthLenght = true;
                     break;
                 }
             }
             if (rigthLenght) {
-                result[index] = strArr[i];
+                result[index] = s;
                 index += 1;
             }
         }
