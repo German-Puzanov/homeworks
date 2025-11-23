@@ -1,3 +1,5 @@
+package лаба3;
+
 import java.util.Scanner;
 
 public class LabaThirdFirstTask {
