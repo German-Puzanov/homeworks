@@ -1,4 +1,4 @@
-package лаба6;
+package Lab6;
 
 import java.util.Arrays;
 import java.util.Scanner;
