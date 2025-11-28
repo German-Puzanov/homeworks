@@ -8,7 +8,7 @@ public class LabaSecondSecondTask {
         double result = 0;
         double weight = 0;
         Scanner scanner = new Scanner(System.in);
-        int N = 1;
+        int N = 25;
 
         System.out.print("Введите Фрукт: ");
         String item = scanner.nextLine().toLowerCase();
