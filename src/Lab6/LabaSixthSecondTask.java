@@ -1,17 +1,17 @@
 package Lab6;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class LabaSixthSecondTask {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
+        String output = "";
 
-        String strEntry = scanner.nextLine();
+                String strEntry = scanner.nextLine();
         String[] strArr = strEntry.split(" ");
 
-        System.out.println(Arrays.toString(strArr));
+//        System.out.println(Arrays.toString(strArr));
 
         String intEntry = scanner.nextLine();
         String[] numArrStr = intEntry.split(" ");
@@ -29,7 +29,7 @@ public class LabaSixthSecondTask {
 
         }
         int resultLenght = 0;
-        System.out.println(Arrays.toString(numArr));
+//        System.out.println(Arrays.toString(numArr));
         for (String s : strArr) {
             for (int i : numArr) {
                 if (s.length() == i) {
@@ -38,7 +38,7 @@ public class LabaSixthSecondTask {
             }
         }
 
-        System.out.println(resultLenght);
+//        System.out.println(resultLenght);
         String[] result = new String[resultLenght];
         int index = 0;
         for (String s : strArr) {
@@ -55,9 +55,8 @@ public class LabaSixthSecondTask {
             }
         }
         for (String k : result){
-            System.out.print(k + " ");
+            output += k + " ";
         }
+        System.out.println(output.trim());
     }
-
-
 }
