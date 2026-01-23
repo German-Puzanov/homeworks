@@ -47,9 +47,9 @@ public class LabaFifthFirstTask {
             System.out.println("Некорректно введены данные");
             return;
         }
-
+        double resultArea = area(x1, y1, x2, y2, x3, y3);
         System.out.println(x1 + " " + y1 + " " + x2 + " " + y2 + " " + x3 + " " + y3);
-        if (area(x1, y1, x2, y2, x3, y3) == -1.00) {
+        if (resultArea == -1) {
             System.out.println("Треугольник не прямоугольный не могу посчитать");
         } else {
             System.out.printf("%.2f", area(x1, y1, x2, y2, x3, y3));
