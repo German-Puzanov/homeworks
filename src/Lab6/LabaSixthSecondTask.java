@@ -8,7 +8,7 @@ public class LabaSixthSecondTask {
         Scanner scanner = new Scanner(System.in);
         String output = "";
 
-                String strEntry = scanner.nextLine();
+        String strEntry = scanner.nextLine();
         String[] strArr = strEntry.split(" ");
 
 //        System.out.println(Arrays.toString(strArr));

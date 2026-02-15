@@ -38,13 +38,12 @@ public class LabaFifthSecondTask {
                 }
             }
         } else {
+            String newText = text.substring(indexOfSpace + 1);
             try {
-                String newText = text.substring(indexOfSpace + 1);
                 int num = Integer.parseInt(text.substring(0, indexOfSpace));
                 return averageNum(newText, value + num, count + 1);
 
             } catch (NumberFormatException ex) {
-                String newText = text.substring(indexOfSpace + 1);
                 return averageNum(newText, value, count);
             }
         }
