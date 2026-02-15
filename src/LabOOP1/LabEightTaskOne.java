@@ -2,7 +2,7 @@ package LabOOP1;
 
 import java.util.Scanner;
 
-public class LabFirstTaskOne {
+public class LabEightTaskOne {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int inputEdge;
