@@ -7,9 +7,11 @@ public class LabEightTaskTwo {
         Scanner scanner = new Scanner(System.in);
 
         try {
+            System.out.print("Введите имя козы/козла (длина имени >= 3 символа): ");
             String name = scanner.nextLine().trim();
-            String gender = scanner.nextLine().trim();
+
             int age;
+            System.out.print("Введите возраст козы/козла: ");
             try {
                 age = Integer.parseInt(scanner.nextLine().trim());
 
@@ -17,6 +19,9 @@ public class LabEightTaskTwo {
                 System.out.println("Invalid age!");
                 return;
             }
+            System.out.print("Введите коза или козел (male/female): ");
+            String gender = scanner.nextLine().trim();
+
             Goat goat = new Goat(name, gender, age);
             System.out.println(goat.getInfo());
             while(!scanner.nextLine().trim().equalsIgnoreCase("q")){

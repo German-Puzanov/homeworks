@@ -3,7 +3,7 @@ package LabOOP1;
 import java.util.Scanner;
 
 public class Bank {
-    public static final int MAX_NUM_OF_ACCOUNTS = 5;
+    public static final int MAX_NUM_OF_ACCOUNTS = 100;
     public static BankAccount[] accounts = new BankAccount[MAX_NUM_OF_ACCOUNTS];
 
     public static void main(String[] args) {
