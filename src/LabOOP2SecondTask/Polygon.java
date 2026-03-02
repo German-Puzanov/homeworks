@@ -20,11 +20,13 @@ public class Polygon {
     }
 
     public boolean isCorrectSide(int side) {
-        return side >= 0;
+        return side > 0;
     }
 
     public boolean isCorrectPolygon(int[] sides) {
+        if (sides.length == 0) return false;
         for (int i = 0; i < sides.length - 1; i++) {
+            if (!isCorrectSide(sides[i])) return false;
             for (int j = 0; j < sides.length - 1 - i; j++) {
                 if (sides[j] < sides[j + 1]) {
                     int temp = sides[j];

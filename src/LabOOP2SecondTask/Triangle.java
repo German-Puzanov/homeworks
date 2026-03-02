@@ -6,12 +6,13 @@ public class Triangle extends Polygon {
     }
 
     public double getInRadius() {
-        int halfPerimeter = 0;
+        double halfPerimeter = 0;
         double radiusIn;
         for (int i = 0; i < 3; i++) {
             halfPerimeter += sides[i];
         }
         halfPerimeter /= 2;
+
         radiusIn = Math.sqrt(halfPerimeter * (halfPerimeter - sides[0]) * (halfPerimeter - sides[1]) * (halfPerimeter - sides[2])) / halfPerimeter;
         return radiusIn;
     }

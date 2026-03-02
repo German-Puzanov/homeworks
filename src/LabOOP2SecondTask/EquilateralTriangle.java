@@ -6,7 +6,7 @@ public class EquilateralTriangle extends IsoscelesTriangle {
     }
 
     public boolean isEquilateralTriangle() {
-        return sides[0] == sides[1] && sides[1] == sides[2];
+        return isTriangle() && sides[0] == sides[1] && sides[1] == sides[2];
     }
 
     @Override
