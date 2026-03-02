@@ -43,6 +43,7 @@ public class Polygon {
 
     @Override
     public String toString() {
-        return String.format("Polygon contains %d sides. It's perimeter %d", this.sides.length, getPerimeter());
+        if (!isCorrectPolygon(this.sides)) return "Invalid value, try again!";
+        return String.format("Polygon contains %d sides. It's perimeter %d", getSidesCount(), getPerimeter());
     }
 }

@@ -6,6 +6,12 @@ public class Quadrilateral extends Polygon {
     }
 
     public boolean isQuadrilateral(int[] sides) {
-        return sides.length == 4;
+        return getSidesCount() == 4;
+    }
+
+    @Override
+    public String toString() {
+        if (!isQuadrilateral(sides)) return "Invalid value, try again!";
+        return String.format("Quadrilateral contains %d sides Its perimeter is %d ", getSidesCount(), getPerimeter());
     }
 }
