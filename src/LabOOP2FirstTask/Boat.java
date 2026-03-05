@@ -1,4 +1,4 @@
-package LabOOP2;
+package LabOOP2FirstTask;
 
 public class Boat extends Vehicle {
     private final int oarsCount;

@@ -1,4 +1,4 @@
-package LabOOP2;
+package LabOOP2FirstTask;
 
 import java.util.Scanner;
 
