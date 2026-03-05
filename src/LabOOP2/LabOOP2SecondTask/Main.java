@@ -1,28 +1,74 @@
 package LabOOP2.LabOOP2SecondTask;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String[] input = scanner.nextLine().split(" ");
+        int[] sides = new int[input.length];
         try {
-            var polygon = new Polygon(new int[]{2,3,4,5});
-            var quadrilateral = new Quadrilateral(new int[]{1, 2, 2, 1});
-            var parallelogram = new Parallelogram(new int[]{1,2,1,2});
-            var rhombus = new Rhombus(new int[]{1,1,1,1});
-            var triangle = new Triangle(new int[]{3,4,5});
-            var isoscelesTriangle = new IsoscelesTriangle(new int[]{2,2,3});
-            var equilateralTriangle = new EquilateralTriangle(new int[]{2,2,2});
-            var circle = new Circle(new int[]{1});
-
-            System.out.println(polygon);
-            System.out.println(quadrilateral);
-            System.out.println(parallelogram);
-            System.out.println(rhombus);
-            System.out.println(triangle);
-            System.out.println(isoscelesTriangle);
-            System.out.println(equilateralTriangle);
-            System.out.println(circle);
-
-        } catch (IllegalArgumentException e) {
-            System.out.print(e.getMessage());
+            for (int i = 0; i < input.length; i++) {
+                sides[i] = Integer.parseInt(input[i]);
+            }
+        } catch (NumberFormatException ignored) {
         }
+
+        try {
+            var polygon = new Polygon(sides);
+            System.out.println(polygon);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            var quadrilateral = new Quadrilateral(sides);
+            System.out.println(quadrilateral);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            var parallelogram = new Parallelogram(sides);
+            System.out.println(parallelogram);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            var rhombus = new Rhombus(sides);
+            System.out.println(rhombus);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            var triangle = new Triangle(sides);
+            System.out.println(triangle);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            var isoscelesTriangle = new IsoscelesTriangle(sides);
+            System.out.println(isoscelesTriangle);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            var equilateralTriangle = new EquilateralTriangle(sides);
+            System.out.println(equilateralTriangle);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            var circle = new Circle(sides);
+            System.out.println(circle);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 }

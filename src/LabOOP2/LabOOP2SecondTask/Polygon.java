@@ -45,6 +45,7 @@ public class Polygon {
 
     @Override
     public String toString() {
+        if (sides.length == 1) return "Invalid value, try again!";
         return String.format("Polygon contains %d sides. It's perimeter %d", getSidesCount(), getPerimeter());
     }
 }
