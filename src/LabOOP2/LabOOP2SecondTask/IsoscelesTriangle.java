@@ -1,8 +1,11 @@
-package LabOOP2SecondTask;
+package LabOOP2.LabOOP2SecondTask;
 
 public class IsoscelesTriangle extends Triangle {
     public IsoscelesTriangle(int[] sides) {
         super(sides);
+        if (!isIsoscelesTriangle()) {
+            throw new IllegalArgumentException("Invalid value, try again!");
+        }
     }
 
     public boolean isIsoscelesTriangle() {
@@ -11,7 +14,6 @@ public class IsoscelesTriangle extends Triangle {
 
     @Override
     public String toString() {
-        if (!isIsoscelesTriangle()) return "Invalid value, try again!";
         return String.format("Isosceles triangle contains pair of equal sides Its perimeter is %d Its radius of incircle is %f", getPerimeter(), getInRadius());
     }
 }

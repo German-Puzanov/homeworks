@@ -1,8 +1,11 @@
-package LabOOP2SecondTask;
+package LabOOP2.LabOOP2SecondTask;
 
 public class EquilateralTriangle extends IsoscelesTriangle {
     public EquilateralTriangle(int[] sides) {
         super(sides);
+        if(!isEquilateralTriangle()){
+            throw new IllegalArgumentException("Invalid value, try again!");
+        }
     }
 
     public boolean isEquilateralTriangle() {
@@ -11,7 +14,6 @@ public class EquilateralTriangle extends IsoscelesTriangle {
 
     @Override
     public String toString() {
-        if (!isEquilateralTriangle()) return "Invalid value, try again!";
         return String.format("Equilateral triangle contains equal sides Its perimeter is %d Its radius of incircle is %f ", getPerimeter(), getInRadius());
     }
 }

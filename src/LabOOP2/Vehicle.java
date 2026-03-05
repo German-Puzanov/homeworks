@@ -9,6 +9,9 @@ public class Vehicle {
     }
 
     protected void setPassengers(int passengers) throws IllegalArgumentException {
+        if (passengers == 0){
+            throw new IllegalArgumentException("No passengers!");
+        }
         if(passengers < 0){
             throw new IllegalArgumentException("Invalid negative number! Argument oars count");
         }

@@ -1,9 +1,12 @@
-package LabOOP2SecondTask;
+package LabOOP2.LabOOP2SecondTask;
 
 public class Polygon {
     protected int[] sides;
 
     public Polygon(int[] sides) {
+        if (!isCorrectPolygon(sides)) {
+            throw new IllegalArgumentException("Invalid value, try again!");
+        }
         this.sides = sides;
     }
 
@@ -23,20 +26,17 @@ public class Polygon {
         return side > 0;
     }
 
-    public boolean isCorrectPolygon(int[] sides) {
+    public boolean isCorrectPolygon(int[] sides){
         if (sides.length == 0) return false;
-        for (int i = 0; i < sides.length - 1; i++) {
+        int sumOfLength;
+        for (int i = 0; i < sides.length; i++) {
+            sumOfLength = 0;
             if (!isCorrectSide(sides[i])) return false;
-            for (int j = 0; j < sides.length - 1 - i; j++) {
-                if (sides[j] < sides[j + 1]) {
-                    int temp = sides[j];
-                    sides[j] = sides[j + 1];
-                    sides[j + 1] = temp;
-                }
+            for (int j = 0; j < sides.length; j++) {
+                if (i == j) continue;
+                sumOfLength += sides[j];
             }
-        }
-        for (int i = 2; i < sides.length; i++) {
-            if (sides[i - 2] >= sides[i - 1] + sides[i]) {
+            if (sumOfLength < sides[i] && sides.length != 1) {
                 return false;
             }
         }
@@ -45,7 +45,6 @@ public class Polygon {
 
     @Override
     public String toString() {
-        if (!isCorrectPolygon(this.sides)) return "Invalid value, try again!";
         return String.format("Polygon contains %d sides. It's perimeter %d", getSidesCount(), getPerimeter());
     }
 }

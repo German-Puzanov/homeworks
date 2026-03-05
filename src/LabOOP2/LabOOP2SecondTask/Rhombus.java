@@ -1,8 +1,11 @@
-package LabOOP2SecondTask;
+package LabOOP2.LabOOP2SecondTask;
 
 public class Rhombus extends Parallelogram {
     public Rhombus(int[] sides) {
         super(sides);
+        if (!isRhombus(sides)){
+            throw  new IllegalArgumentException("Invalid value, try again!");
+        }
     }
 
     public boolean isRhombus(int[] sides) {
@@ -11,7 +14,6 @@ public class Rhombus extends Parallelogram {
 
     @Override
     public String toString() {
-        if (!isRhombus(sides)) return "Invalid value, try again!";
         return String.format("Rhombus contains %d equal sides Its perimeter is %d", getSidesCount(), getPerimeter());
     }
 }

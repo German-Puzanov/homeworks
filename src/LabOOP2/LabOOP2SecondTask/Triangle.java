@@ -1,8 +1,11 @@
-package LabOOP2SecondTask;
+package LabOOP2.LabOOP2SecondTask;
 
 public class Triangle extends Polygon {
     public Triangle(int[] sides) {
         super(sides);
+        if (!isTriangle()){
+            throw new IllegalArgumentException("Invalid value, try again!");
+        }
     }
 
     public double getInRadius() {
@@ -23,7 +26,6 @@ public class Triangle extends Polygon {
 
     @Override
     public String toString() {
-        if (!isTriangle()) return "Invalid value, try again!";
         return String.format("Triangle contains %d sides Its perimeter is %d Its radius of incircle is %f", getSidesCount(), getPerimeter(), getInRadius());
     }
 

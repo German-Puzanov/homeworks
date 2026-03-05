@@ -1,8 +1,11 @@
-package LabOOP2SecondTask;
+package LabOOP2.LabOOP2SecondTask;
 
 public class Parallelogram extends Quadrilateral {
     public Parallelogram(int[] sides) {
         super(sides);
+        if (!isParallelogram(sides)){
+            throw new IllegalArgumentException("Invalid value, try again!");
+        }
     }
 
     public boolean isParallelogram(int[] sides) {
@@ -11,7 +14,6 @@ public class Parallelogram extends Quadrilateral {
 
     @Override
     public String toString() {
-        if (!isParallelogram(sides)) return "Invalid value, try again!";
         return String.format("Parallelogram contains two pairs of parallel sides Its perimeter is %d", getPerimeter());
     }
 }
