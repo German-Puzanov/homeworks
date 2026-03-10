@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
 
         try {
-            var worker = new Worker("");
+            var worker = new Worker("Ben");
             System.out.println(worker);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());

@@ -1,6 +1,6 @@
 package LabOOP3FirstTask;
 
-public class BasePerson implements Person{
+public abstract class BasePerson implements Person{
     private final String name;
 
     public BasePerson(String name) throws IllegalArgumentException{
@@ -18,5 +18,9 @@ public class BasePerson implements Person{
     @Override
     public String getEmployment() {
         return "";
+    }
+    @Override
+    public String toString(){
+        return String.format("%s %s",getName(),getEmployment());
     }
 }

@@ -10,8 +10,4 @@ public class Worker extends BasePerson{
         return "works";
     }
 
-    @Override
-    public String toString(){
-        return String.format("%s %s",getName(),getEmployment());
-    }
 }

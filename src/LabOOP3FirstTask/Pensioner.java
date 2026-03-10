@@ -10,9 +10,4 @@ public class Pensioner extends  BasePerson{
         return "is resting";
     }
 
-    @Override
-    public String toString(){
-        return String.format("%s %s",getName(),getEmployment());
-    }
-
 }
