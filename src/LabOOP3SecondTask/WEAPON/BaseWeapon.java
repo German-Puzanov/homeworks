@@ -1,6 +1,6 @@
 package LabOOP3SecondTask.WEAPON;
 
-public class BaseWeapon implements Weapon{
+public abstract class BaseWeapon implements Weapon{
     protected double power;
 
     public BaseWeapon(double power) throws IllegalArgumentException{
