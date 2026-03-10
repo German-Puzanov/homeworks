@@ -3,9 +3,7 @@ package LabOOP2.LabOOP2SecondTask;
 public class Quadrilateral extends Polygon {
     public Quadrilateral(int[] sides) {
         super(sides);
-        if (isQuadrilateral(this.sides)) {
-            this.sides = sides;
-        } else {
+        if (!isQuadrilateral(sides)) {
             throw new IllegalArgumentException("Invalid value, try again!");
         }
     }

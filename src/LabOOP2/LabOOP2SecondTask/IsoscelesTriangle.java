@@ -9,7 +9,7 @@ public class IsoscelesTriangle extends Triangle {
     }
 
     public boolean isIsoscelesTriangle() {
-        return isTriangle() && sides[0] == sides[1] | sides[1] == sides[2] | sides[0] == sides[2];
+        return isTriangle() && sides[0] == sides[1] || sides[1] == sides[2] || sides[0] == sides[2];
     }
 
     @Override
