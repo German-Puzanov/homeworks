@@ -36,7 +36,7 @@ public class Polygon {
                 if (i == j) continue;
                 sumOfLength += sides[j];
             }
-            if (sumOfLength < sides[i] && sides.length != 1) {
+            if (sumOfLength <= sides[i] && sides.length != 1) {
                 return false;
             }
         }

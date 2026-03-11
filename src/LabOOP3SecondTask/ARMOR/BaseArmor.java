@@ -1,6 +1,6 @@
 package LabOOP3SecondTask.ARMOR;
 
-public abstract class BaseArmor implements Armor {
+public abstract class BaseArmor implements Armor  {
     protected int durability;
 
     public BaseArmor(int durability) throws IllegalArgumentException {

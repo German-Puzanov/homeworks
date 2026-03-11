@@ -7,7 +7,6 @@ public class Helmet extends BaseArmor{
         super(durability);
     }
 
-
     @Override
     public int getPosition() {
         return HELMET_POSITION;
