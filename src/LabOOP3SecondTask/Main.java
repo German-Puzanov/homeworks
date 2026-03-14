@@ -14,44 +14,20 @@ import LabOOP3SecondTask.WEAPON.Weapon;
 public class Main {
     public static void main(String[] args) {
         try {
-            Knight kn1 = new Knight("bib",50,2);
-            Knight kn2 = new Knight("bob",50,2);
+            Knight kn1 = new Knight("bib",5,10);
+            Knight kn2 = new Knight("bob",5,10);
+            Food apple = new Food(1);
+            HealthPotion boost = new HealthPotion(1);
 
-            var sapogi = new Boots(5);
-            var kolchuga = new Dress(5);
-            kn2.dress(sapogi);
-            kn2.dress(kolchuga);
             var sword = new Sword(5);
             kn1.change(sword);
+            kn2.putInto(boost,1);
+            kn1.fight(kn2,2);
+            kn2.useItem(1);
 
-            System.out.println(sapogi);
-            System.out.println(kolchuga);
-            System.out.println();
 
-            kn1.fight(kn2,1);
-            System.out.println(sapogi);
-            System.out.println(kolchuga);
+            System.out.println(kn1);
             System.out.println(kn2);
-            System.out.println();
-
-            kn1.fight(kn2,1);
-            System.out.println(sapogi);
-            System.out.println(kolchuga);
-            System.out.println(kn2);
-            System.out.println();
-
-            kn1.fight(kn2,1);
-            System.out.println(sapogi);
-            System.out.println(kolchuga);
-            System.out.println(kn2);
-            System.out.println();
-
-
-
-
-
-
-
 
 
         } catch (IllegalArgumentException e) {

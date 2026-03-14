@@ -7,7 +7,7 @@ public class HealthPotion extends Potions{
 
     @Override
     public int use(){
-        this.isItemUsed = true;
+        count -= 1;
         return 10;
     }
 

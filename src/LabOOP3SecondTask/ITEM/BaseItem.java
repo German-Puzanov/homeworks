@@ -21,7 +21,7 @@ public abstract class BaseItem implements Item{
     }
     @Override
     public boolean isUsed() {
-        return isItemUsed;
+        return count == 0;
     }
 
     @Override

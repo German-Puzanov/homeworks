@@ -1,7 +1,9 @@
 package LabOOP3SecondTask.CHARACTER;
 
 import LabOOP3SecondTask.ARMOR.Armor;
+import LabOOP3SecondTask.ITEM.Food;
 import LabOOP3SecondTask.ITEM.Item;
+import LabOOP3SecondTask.WEAPON.Sword;
 import LabOOP3SecondTask.WEAPON.Weapon;
 
 public abstract class Hero implements Player, Healthy, Equipment, Inventory {
@@ -130,6 +132,8 @@ public abstract class Hero implements Player, Healthy, Equipment, Inventory {
             weapon += this.weapon;
         }
 
-        return String.format("[%s]: %s, health: [%s] weapon: [%s], inventory: [%s]", getClass().getSimpleName(), getUsername(), hp, weapon, items);
+        return String.format("[%s]: %s, health:[%s] weapon:[%s], inventory:[%s]", getClass().getSimpleName(), getUsername(), hp, weapon, items);
     }
+
+    public abstract boolean change(Sword sword);
 }

@@ -7,7 +7,7 @@ public class Food extends BaseItem {
 
     @Override
     public int use() {
-        this.isItemUsed = true;
+        count -= 1;
         return 5;
     }
 
