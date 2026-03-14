@@ -2,6 +2,6 @@ package LabOOP3SecondTask.CHARACTER;
 
 public interface Player {
     String getUserName();
-    int damage();
+    int damage(int baseDamage);
     boolean fight();
 }

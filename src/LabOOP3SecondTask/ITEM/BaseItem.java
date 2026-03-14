@@ -17,7 +17,6 @@ public abstract class BaseItem implements Item{
 
     @Override
     public int use() {
-        this.isItemUsed = true;
         return 0;
     }
     @Override

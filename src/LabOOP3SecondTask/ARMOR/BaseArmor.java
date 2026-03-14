@@ -1,6 +1,6 @@
 package LabOOP3SecondTask.ARMOR;
 
-public abstract class BaseArmor implements Armor  {
+public abstract class BaseArmor implements Armor {
     protected int durability;
 
     public BaseArmor(int durability) throws IllegalArgumentException {
@@ -20,17 +20,20 @@ public abstract class BaseArmor implements Armor  {
 
     @Override
     public int protect(int damage) {
+        int durabilityBefore = this.durability;
         if (this.durability - damage < 0) {
             this.durability = 0;
+            System.out.println(damage - durabilityBefore);
+            return damage - durabilityBefore;
         } else {
             this.durability -= damage;
+            return 0;
         }
-        return this.durability;
     }
 
     @Override
     public String toString() {
-        return String.format("[%d]: [%S], durability: [%d], isBroken: [%b]",getPosition(),getClass().getSimpleName(),durability,isBroken());
+        return String.format("[%d]: [%S], durability: [%d], isBroken: [%b]", getPosition(), getClass().getSimpleName(), durability, isBroken());
     }
 
 }
