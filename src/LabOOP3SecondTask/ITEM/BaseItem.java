@@ -3,7 +3,6 @@ package LabOOP3SecondTask.ITEM;
 
 public abstract class BaseItem implements Item{
     protected int count;
-    boolean isItemUsed = false;
 
     public BaseItem(int count) throws IllegalArgumentException{
         if (count < MIN_VALUE) {

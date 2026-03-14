@@ -35,11 +35,7 @@ public abstract class Hero implements Player, Healthy, Equipment, Inventory {
     public int damage(int damage) throws IllegalArgumentException {
         for (Armor armor : this.clothes) {
             if (armor == null || armor.isBroken()) continue;
-            if (armor.protect(damage) > 0) {
-                damage -= armor.protect(damage);
-            } else {
-                return 0;
-            }
+            damage = armor.protect(damage);
         }
         loseHealth(damage);
         return damage;
@@ -50,8 +46,8 @@ public abstract class Hero implements Player, Healthy, Equipment, Inventory {
     }
 
     public void recoverHealth(int addedHealth) {
-        if (!isDied()) {
-            if (addedHealth > MAX_HEALTH) {
+        if (!isDied() && addedHealth > 0) {
+            if (this.health + addedHealth > MAX_HEALTH) {
                 this.health = MAX_HEALTH;
             } else {
                 this.health += addedHealth;
@@ -66,10 +62,10 @@ public abstract class Hero implements Player, Healthy, Equipment, Inventory {
     }
 
     public boolean putInto(Item item, int slot) {
-        if (isDied() || item == null) {
+        if (isDied() || item == null || slot > ITEM_COUNT || slot < 0) {
             return false;
         } else {
-            this.items[slot] = item;
+            this.items[slot - 1] = item;
             return true;
         }
     }
@@ -98,9 +94,10 @@ public abstract class Hero implements Player, Healthy, Equipment, Inventory {
         }
     }
 
+
     public boolean useItem(int slot) {
-        if (items[slot] != null && !isDied() && !items[slot].isUsed()) {
-            items[slot].use();
+        if (slot > 0 && slot < ITEM_COUNT && items[slot - 1] != null && !isDied() && !items[slot - 1].isUsed()) {
+            items[slot - 1].use();
             return true;
         } else {
             return false;
@@ -110,7 +107,7 @@ public abstract class Hero implements Player, Healthy, Equipment, Inventory {
     @Override
     public String toString() {
         String weapon = "";
-        String items = "";
+        StringBuilder items = new StringBuilder();
         String hp;
         if (isDied()) {
             hp = "DEAD";
@@ -120,20 +117,18 @@ public abstract class Hero implements Player, Healthy, Equipment, Inventory {
 
         for (Item item : this.items) {
             if (item == null) {
-                items += "no ";
+                items.append("no ");
             } else {
-                items += item + " ";
+                items.append(item).append(" ");
             }
         }
-        items = items.trim();
+        items = new StringBuilder(items.toString().trim());
         if (this.weapon == null) {
             weapon = "no";
         } else {
             weapon += this.weapon;
         }
 
-        return String.format("[%s]: %s, health:[%s] weapon:[%s], inventory:[%s]", getClass().getSimpleName(), getUsername(), hp, weapon, items);
+        return String.format("[%s]: %s, health:[%s] weapon:[%s], inventory:[%s]", getClass().getSimpleName(), getUsername(), hp, weapon, items.toString());
     }
-
-    public abstract boolean change(Sword sword);
 }

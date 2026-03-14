@@ -21,9 +21,8 @@ public abstract class BaseArmor implements Armor {
     @Override
     public int protect(int damage) {
         int durabilityBefore = this.durability;
-        if (this.durability - damage < 0) {
+        if (damage > durabilityBefore) {
             this.durability = 0;
-            System.out.println(damage - durabilityBefore);
             return damage - durabilityBefore;
         } else {
             this.durability -= damage;
