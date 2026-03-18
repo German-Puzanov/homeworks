@@ -1,7 +1,7 @@
 package LabOOP3SecondTask.ARMOR;
 
 public class Dress extends BaseArmor{
-    private int DRESS_POSITION = 2;
+    private static final int DRESS_POSITION = 2;
 
     public Dress(int durability) throws IllegalArgumentException {
         super(durability);

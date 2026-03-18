@@ -1,9 +1,7 @@
 package LabOOP3SecondTask.CHARACTER;
 
 import LabOOP3SecondTask.ARMOR.Armor;
-import LabOOP3SecondTask.ITEM.Food;
 import LabOOP3SecondTask.ITEM.Item;
-import LabOOP3SecondTask.WEAPON.Sword;
 import LabOOP3SecondTask.WEAPON.Weapon;
 
 public abstract class Hero implements Player, Healthy, Equipment, Inventory {
@@ -28,7 +26,7 @@ public abstract class Hero implements Player, Healthy, Equipment, Inventory {
         this.health -= lostHealth;
     }
 
-    public String getUsername() {
+    public String getUserName() {
         return this.username.trim();
     }
 
@@ -36,6 +34,7 @@ public abstract class Hero implements Player, Healthy, Equipment, Inventory {
         for (Armor armor : this.clothes) {
             if (armor == null || armor.isBroken()) continue;
             damage = armor.protect(damage);
+            if (damage == 0) return 0;
         }
         loseHealth(damage);
         return damage;
@@ -56,8 +55,10 @@ public abstract class Hero implements Player, Healthy, Equipment, Inventory {
     }
 
     public void dress(Armor armor) {
-        if (!isDied() || armor != null) {
-            this.clothes[armor.getPosition() - 1] = armor;
+        if (!isDied() && armor != null) {
+            if (armor.getPosition() >= 0 && armor.getPosition() <= 3){
+                this.clothes[armor.getPosition() - 1] = armor;
+            }
         }
     }
 
@@ -96,7 +97,7 @@ public abstract class Hero implements Player, Healthy, Equipment, Inventory {
 
 
     public boolean useItem(int slot) {
-        if (slot > 0 && slot < ITEM_COUNT && items[slot - 1] != null && !isDied() && !items[slot - 1].isUsed()) {
+        if (slot > 0 && slot <= ITEM_COUNT && items[slot - 1] != null && !isDied() && !items[slot - 1].isUsed()) {
             items[slot - 1].use();
             return true;
         } else {
@@ -109,6 +110,8 @@ public abstract class Hero implements Player, Healthy, Equipment, Inventory {
         String weapon = "";
         StringBuilder items = new StringBuilder();
         String hp;
+        StringBuilder armors = new StringBuilder();
+        String[] armorList = new String[]{"BOOTS", "DRESS", "HELMET"};
         if (isDied()) {
             hp = "DEAD";
         } else {
@@ -122,13 +125,22 @@ public abstract class Hero implements Player, Healthy, Equipment, Inventory {
                 items.append(item).append(" ");
             }
         }
+        int count = 1;
+        for (Armor armor : this.clothes) {
+            if (armor == null) {
+                armors.append(String.format("[%d]: [%s], no\n", count, armorList[count-1]));
+            } else {
+                armors.append(String.format("%s\n", armor));
+            }
+            count++;
+        }
+
         items = new StringBuilder(items.toString().trim());
         if (this.weapon == null) {
             weapon = "no";
         } else {
             weapon += this.weapon;
         }
-
-        return String.format("[%s]: %s, health:[%s] weapon:[%s], inventory:[%s]", getClass().getSimpleName(), getUsername(), hp, weapon, items.toString());
+        return String.format("[%s]: %s, health:[%s] weapon:[%s], inventory:[%s]\n%s", getClass().getSimpleName(), getUserName(), hp, weapon, items, armors);
     }
 }

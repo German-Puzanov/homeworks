@@ -1,7 +1,7 @@
 package LabOOP3SecondTask.WEAPON;
 
 public class Sword extends BaseWeapon{
-    private int SWORD_DISTANCE = 2;
+    private static final int SWORD_DISTANCE = 2;
 
     public Sword(double power) throws IllegalArgumentException {
         super(power);
