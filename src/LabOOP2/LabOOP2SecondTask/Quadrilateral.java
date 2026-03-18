@@ -3,13 +3,13 @@ package LabOOP2.LabOOP2SecondTask;
 public class Quadrilateral extends Polygon {
     public Quadrilateral(int[] sides) {
         super(sides);
-        if (!isQuadrilateral(sides)) {
+        if (!isQuadrilateral(this.sides)) {
             throw new IllegalArgumentException("Invalid value, try again!");
         }
     }
 
-    public boolean isQuadrilateral(int[] sides) {
-        return super.isCorrectPolygon(sides) && getSidesCount() == 4;
+    public static boolean isQuadrilateral(int[] sides) {
+        return sides.length == 4;
     }
 
     @Override

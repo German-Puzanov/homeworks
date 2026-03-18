@@ -3,7 +3,7 @@ package LabOOP2.LabOOP2SecondTask;
 public class Triangle extends Polygon {
     public Triangle(int[] sides) {
         super(sides);
-        if (!isTriangle()){
+        if (!isTriangle(this.sides)){
             throw new IllegalArgumentException("Invalid value, try again!");
         }
     }
@@ -20,8 +20,8 @@ public class Triangle extends Polygon {
         return radiusIn;
     }
 
-    public boolean isTriangle() {
-        return getSidesCount() == 3 && isCorrectPolygon(sides);
+    public static boolean isTriangle(int[] sides) {
+        return sides.length == 3;
     }
 
     @Override

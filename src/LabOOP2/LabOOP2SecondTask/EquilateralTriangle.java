@@ -3,13 +3,13 @@ package LabOOP2.LabOOP2SecondTask;
 public class EquilateralTriangle extends IsoscelesTriangle {
     public EquilateralTriangle(int[] sides) {
         super(sides);
-        if(!isEquilateralTriangle()){
+        if (!isEquilateralTriangle(this.sides)) {
             throw new IllegalArgumentException("Invalid value, try again!");
         }
     }
 
-    public boolean isEquilateralTriangle() {
-        return isTriangle() && sides[0] == sides[1] && sides[1] == sides[2];
+    public static boolean isEquilateralTriangle(int[] sides) {
+        return sides[0] == sides[1] && sides[1] == sides[2];
     }
 
     @Override

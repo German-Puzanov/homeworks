@@ -3,13 +3,13 @@ package LabOOP2.LabOOP2SecondTask;
 public class IsoscelesTriangle extends Triangle {
     public IsoscelesTriangle(int[] sides) {
         super(sides);
-        if (!isIsoscelesTriangle()) {
+        if (!isIsoscelesTriangle(this.sides)) {
             throw new IllegalArgumentException("Invalid value, try again!");
         }
     }
 
-    public boolean isIsoscelesTriangle() {
-        return isTriangle() && sides[0] == sides[1] || sides[1] == sides[2] || sides[0] == sides[2];
+    public static boolean isIsoscelesTriangle(int[] sides) {
+        return sides[0] == sides[1] || sides[1] == sides[2] || sides[0] == sides[2];
     }
 
     @Override

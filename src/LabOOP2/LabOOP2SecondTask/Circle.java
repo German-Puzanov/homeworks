@@ -1,9 +1,9 @@
 package LabOOP2.LabOOP2SecondTask;
 
 public class Circle extends Polygon {
-    public Circle(int[] sides) {
-        super(sides);
-        if (!isCircle(sides)) {
+    public Circle(int[] radius) {
+        super(radius);
+        if (!isCircle(this.sides)) {
             throw new IllegalArgumentException("Invalid value, try again!");
         }
     }
@@ -12,8 +12,8 @@ public class Circle extends Polygon {
         return Math.PI * Math.pow(sides[0], 2);
     }
 
-    public boolean isCircle(int[] sides) {
-        return getSidesCount() == 1 && isCorrectSide(sides[0]);
+    public static boolean isCircle(int[] radius) {
+        return radius.length == 1;
     }
 
     @Override

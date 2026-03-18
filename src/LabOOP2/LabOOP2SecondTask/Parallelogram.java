@@ -3,13 +3,13 @@ package LabOOP2.LabOOP2SecondTask;
 public class Parallelogram extends Quadrilateral {
     public Parallelogram(int[] sides) {
         super(sides);
-        if (!isParallelogram(sides)){
+        if (!isParallelogram(this.sides)){
             throw new IllegalArgumentException("Invalid value, try again!");
         }
     }
 
-    public boolean isParallelogram(int[] sides) {
-        return isQuadrilateral(sides) && (sides[0] == sides[2] && sides[1] == sides[3]);
+    public static boolean isParallelogram(int[] sides) {
+        return (sides[0] == sides[2] && sides[1] == sides[3]);
     }
 
     @Override
