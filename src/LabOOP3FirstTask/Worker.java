@@ -7,7 +7,11 @@ public class Worker extends BasePerson{
 
     @Override
     public String getEmployment(){
-        return "works";
+        return "Worker";
     }
 
+    @Override
+    public String toString() {
+        return String.format("%s works", getName());
+    }
 }

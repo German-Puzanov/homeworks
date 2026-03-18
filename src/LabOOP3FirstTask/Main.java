@@ -2,24 +2,18 @@ package LabOOP3FirstTask;
 
 public class Main {
     public static void main(String[] args) {
-
         try {
-            var worker = new Worker("Ben");
-            System.out.println(worker);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-        }
+            Person[] mock = new Person[3];
+            mock[0] = new Worker("Petr");
+            mock[1] = new Student("Gleb");
+            mock[2] = new Pensioner("Ivan Kuzmich");
 
-        try {
-            var student = new Student("Dima");
-            System.out.println(student);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-        }
+            //Person worker = new Worker("Ben");
 
-        try {
-            var pensioner = new Pensioner("Nikolai");
-            System.out.println(pensioner);
+            for (Person pers : mock) {
+                System.out.println(pers);
+            }
+            //System.out.println(worker.getEmployment());
 
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
