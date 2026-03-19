@@ -3,8 +3,8 @@ package LabOOP1;
 public class Icosahedron {
     private int edge;
 
-    public Icosahedron(int InputEdge) {
-        this.edge = Math.abs(InputEdge);
+    public Icosahedron(int inputEdge) {
+        this.edge = Math.abs(inputEdge);
     }
 
     public int getFacesArea() {

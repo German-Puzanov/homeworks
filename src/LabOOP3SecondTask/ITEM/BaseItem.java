@@ -16,11 +16,18 @@ public abstract class BaseItem implements Item{
 
     @Override
     public int use() {
-        return 0;
-    }
+        if (isUsed()){
+            return 0;
+        } else {
+            int value = this.count;
+            this.count = 0;
+            return value;
+        }
+
+    } // fixme
     @Override
     public boolean isUsed() {
-        return count == 0;
+        return count <= 0;
     }
 
     @Override

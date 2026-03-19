@@ -17,56 +17,56 @@ public class Main {
 
         try {
             var polygon = new Polygon(sides);
-            System.out.println(polygon);
+            System.out.println("Многоугольник: " + polygon);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
 
         try {
             var quadrilateral = new Quadrilateral(sides);
-            System.out.println(quadrilateral);
+            System.out.println("Четырехугольник: " + quadrilateral);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
 
         try {
             var parallelogram = new Parallelogram(sides);
-            System.out.println(parallelogram);
+            System.out.println("Параллелограмм: " + parallelogram);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
 
         try {
             var rhombus = new Rhombus(sides);
-            System.out.println(rhombus);
+            System.out.println("Ромб: " + rhombus);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
 
         try {
             var triangle = new Triangle(sides);
-            System.out.println(triangle);
+            System.out.println("Треугольник: " + triangle);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
 
         try {
             var isoscelesTriangle = new IsoscelesTriangle(sides);
-            System.out.println(isoscelesTriangle);
+            System.out.println("Равнобедренный треугольник: " + isoscelesTriangle);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
 
         try {
             var equilateralTriangle = new EquilateralTriangle(sides);
-            System.out.println(equilateralTriangle);
+            System.out.println("Равносторонний треугольник: " +equilateralTriangle);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
 
         try {
             var circle = new Circle(sides);
-            System.out.println(circle);
+            System.out.println("Круг: " +circle);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }

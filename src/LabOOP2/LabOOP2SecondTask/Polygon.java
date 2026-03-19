@@ -3,11 +3,13 @@ package LabOOP2.LabOOP2SecondTask;
 public class Polygon {
     protected int[] sides;
 
+
     public Polygon(int[] sides) {
         if (!isCorrectPolygon(sides)) {
             throw new IllegalArgumentException("Invalid value, try again!");
         }
         this.sides = sides;
+        if (getSidesCount() == 1) ;
     }
 
     public int getSidesCount() {
@@ -22,11 +24,11 @@ public class Polygon {
         return perimeter;
     }
 
-    public boolean isCorrectSide(int side) {
+    public static boolean isCorrectSide(int side) {
         return side > 0;
     }
 
-    public boolean isCorrectPolygon(int[] sides){
+    public static boolean isCorrectPolygon(int[] sides) {
         if (sides.length == 0) return false;
         int sumOfLength;
         for (int i = 0; i < sides.length; i++) {
@@ -45,7 +47,6 @@ public class Polygon {
 
     @Override
     public String toString() {
-        if (sides.length == 1) return "Invalid value, try again!";
         return String.format("Polygon contains %d sides. It's perimeter %d", getSidesCount(), getPerimeter());
     }
 }

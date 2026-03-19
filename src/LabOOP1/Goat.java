@@ -8,18 +8,21 @@ public class Goat {
     public Goat(String name, String gender, int age) throws IllegalArgumentException {
         if (name != null && !(name.isBlank()) && name.length() >= 3) {
             this.name = name;
-        } else{
+        } else {
             throw new IllegalArgumentException("Invalid name!");
         }
 
-        if (gender.equalsIgnoreCase("female") || gender.equalsIgnoreCase("male")){
-            this.gender = gender;
-        } else{
+        if (gender == null) {
             throw new IllegalArgumentException("Invalid gender!");
         }
-        if (age >= 0){
+        if (gender.equalsIgnoreCase("female") || gender.equalsIgnoreCase("male")) {
+            this.gender = gender;
+        } else {
+            throw new IllegalArgumentException("Invalid gender!");
+        }
+        if (age >= 0) {
             this.age = age;
-        }else {
+        } else {
             throw new IllegalArgumentException("Invalid age!");
         }
     }

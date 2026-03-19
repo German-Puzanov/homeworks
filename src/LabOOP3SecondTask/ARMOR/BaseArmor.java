@@ -8,7 +8,7 @@ public abstract class BaseArmor implements Armor {
             throw new IllegalArgumentException("Error: Durability below MIN_VALUE");
         }
         if (durability > MAX_VALUE) {
-            throw new IllegalArgumentException("Error: Durability over MIN_VALUE");
+            throw new IllegalArgumentException("Error: Durability over MAX_VALUE");
         }
         this.durability = durability;
     }

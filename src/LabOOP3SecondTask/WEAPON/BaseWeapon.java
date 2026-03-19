@@ -20,7 +20,7 @@ public abstract class BaseWeapon implements Weapon{
 
     @Override
     public int getDistance() {
-        return 0;
+        return 1;
     }
 
     @Override
