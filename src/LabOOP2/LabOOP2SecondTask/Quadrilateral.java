@@ -9,7 +9,7 @@ public class Quadrilateral extends Polygon {
     }
 
     public boolean isQuadrilateral(int[] sides) {
-        return super.isCorrectPolygon(sides) && getSidesCount() == 4;
+        return getSidesCount() == 4;
     }
 
     @Override

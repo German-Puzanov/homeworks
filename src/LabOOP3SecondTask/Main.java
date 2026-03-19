@@ -24,7 +24,7 @@ public class Main {
             Armor helmet = new Helmet(5);
             Armor boots = new Boots(5);
             Armor chestplate = new Dress(5);
-//
+
             kn1.change(sword);
             kn2.dress(helmet);
             kn2.dress(boots);

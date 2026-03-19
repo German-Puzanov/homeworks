@@ -9,7 +9,7 @@ public class Rhombus extends Parallelogram {
     }
 
     public boolean isRhombus(int[] sides) {
-        return isParallelogram(sides) && sides[0] == sides[1] && sides[2] == sides[3] && sides[0] == sides[2];
+        return sides[0] == sides[1] && sides[2] == sides[3] && sides[0] == sides[2];
     }
 
     @Override
