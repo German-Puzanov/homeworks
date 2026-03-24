@@ -8,6 +8,8 @@ public class Main {
         String[] input = scanner.nextLine().split(" ");
         scanner.close();
         int[] sides = new int[input.length];
+        int result = 3/2;
+        System.out.println(result);
         try {
             for (int i = 0; i < input.length; i++) {
                 sides[i] = Integer.parseInt(input[i]);
