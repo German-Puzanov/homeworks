@@ -9,7 +9,6 @@ public class Polygon {
             throw new IllegalArgumentException("Invalid value, try again!");
         }
         this.sides = sides;
-        if (getSidesCount() == 1) ;
     }
 
     public int getSidesCount() {
