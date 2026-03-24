@@ -13,7 +13,7 @@ public class Circle extends Polygon {
     }
 
     public boolean isCircle(int[] sides) {
-        return getSidesCount() == 1;
+        return sides.length == 1;
     }
 
     @Override

@@ -23,8 +23,7 @@ public abstract class BaseItem implements Item{
             this.count = 0;
             return value;
         }
-
-    } // fixme
+    }
     @Override
     public boolean isUsed() {
         return count <= 0;

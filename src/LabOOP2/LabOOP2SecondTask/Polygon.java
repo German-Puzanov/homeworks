@@ -3,7 +3,6 @@ package LabOOP2.LabOOP2SecondTask;
 public class Polygon {
     protected int[] sides;
 
-
     public Polygon(int[] sides) {
         if (!isCorrectPolygon(sides)) {
             throw new IllegalArgumentException("Invalid value, try again!");
@@ -15,12 +14,19 @@ public class Polygon {
         return this.sides.length;
     }
 
-    public int getPerimeter() {
-        int perimeter = 0;
+    public Integer getPerimeter() {
+        long perimeter = 0;
+        Integer result;
         for (int side : this.sides) {
             perimeter += side;
         }
-        return perimeter;
+        if (perimeter > Integer.MAX_VALUE) {
+            result = null;
+            System.out.println("Невозможно корректно посчитать периметр, т.к его значение > Integer.MAX_VALUE)");
+        } else {
+            result = (int) perimeter;
+        }
+        return result;
     }
 
     public static boolean isCorrectSide(int side) {
@@ -37,7 +43,7 @@ public class Polygon {
                 if (i == j) continue;
                 sumOfLength += sides[j];
             }
-            if (sumOfLength <= sides[i] && sides.length != 1) {
+            if (sumOfLength <= sides[i] && sides.length > 2) {
                 return false;
             }
         }
