@@ -14,6 +14,6 @@ public class EquilateralTriangle extends IsoscelesTriangle {
 
     @Override
     public String toString() {
-        return String.format("Equilateral triangle contains equal sides Its perimeter is %d Its radius of incircle is %f ", getPerimeter(), getInRadius());
+        return String.format("Equilateral triangle contains equal sides Its perimeter is %d Its radius of encircle is %f ", getPerimeter(), getInRadius());
     }
 }
