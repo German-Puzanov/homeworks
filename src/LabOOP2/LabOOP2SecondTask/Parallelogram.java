@@ -8,7 +8,7 @@ public class Parallelogram extends Quadrilateral {
         }
     }
 
-    public boolean isParallelogram(int[] sides) {
+    public static boolean isParallelogram(int[] sides) {
         return sides[0] == sides[2] && sides[1] == sides[3];
     }
 

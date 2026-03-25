@@ -12,7 +12,7 @@ public class Circle extends Polygon {
         return Math.PI * Math.pow(sides[0], 2);
     }
 
-    public boolean isCircle(int[] sides) {
+    public static boolean isCircle(int[] sides) {
         return sides.length == 1;
     }
 

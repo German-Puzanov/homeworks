@@ -8,7 +8,7 @@ public class Quadrilateral extends Polygon {
         }
     }
 
-    public boolean isQuadrilateral(int[] sides) {
+    public static boolean isQuadrilateral(int[] sides) {
         return sides.length == 4;
     }
 

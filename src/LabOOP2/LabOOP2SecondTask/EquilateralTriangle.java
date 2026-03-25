@@ -8,7 +8,7 @@ public class EquilateralTriangle extends IsoscelesTriangle {
         }
     }
 
-    public boolean isEquilateralTriangle(int[] sides) {
+    public static boolean isEquilateralTriangle(int[] sides) {
         return sides[0] == sides[1] && sides[1] == sides[2];
     }
 

@@ -20,7 +20,7 @@ public class Triangle extends Polygon {
         return radiusIn;
     }
 
-    public boolean isTriangle(int[] sides) {
+    public static boolean isTriangle(int[] sides) {
         return sides.length == 3;
     }
 
