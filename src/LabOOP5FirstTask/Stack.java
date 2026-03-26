@@ -7,7 +7,6 @@ public class Stack implements LIFO{
     public void push(Integer num) {
         int stackLength = this.stackList.length;
         Integer[] newStackList = new Integer[stackLength+1];
-
         System.arraycopy(this.stackList, 0, newStackList, 0, stackLength);
         newStackList[stackLength] = num;
         this.stackList = newStackList;
@@ -16,8 +15,9 @@ public class Stack implements LIFO{
     @Override
     public Integer pop() {
         int stackLength = this.stackList.length;
-        Integer[] newStackList = new Integer[stackLength-1];
+        if (stackLength == 0) return null;
 
+        Integer[] newStackList = new Integer[stackLength-1];
         System.arraycopy(this.stackList, 0, newStackList, 0, newStackList.length);
         Integer popNum = this.stackList[stackList.length - 1];
         this.stackList = newStackList;
@@ -25,7 +25,7 @@ public class Stack implements LIFO{
     }
 
     public Integer peek(){
-        if(stackList.length == 0){
+        if(this.stackList.length == 0){
             return null;
         }
         return this.stackList[stackList.length - 1];
