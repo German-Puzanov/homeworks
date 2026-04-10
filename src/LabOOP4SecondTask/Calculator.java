@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class Calculator {
     static String path = "resourses/text2.txt";
     static String[] temp;
-    static String[] digits = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
+    static String[] digits = {"0", "1", "2", "3", "4", "5", "6", "7", "8"};
 
     private String numberGetter() throws IOException {
         boolean isCorrectDigit;
@@ -72,9 +72,6 @@ public class Calculator {
                 result += (int) nextValue;
                 index++;
             }
-        }
-        if (result < 0) {
-            throw new Exception("Number too big to convert it to int!");
         }
         return result;
     }
