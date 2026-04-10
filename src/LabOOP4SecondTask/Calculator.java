@@ -1,19 +1,20 @@
 package LabOOP4SecondTask;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class Calculator {
     static String path = "resourses/text2.txt";
+    static final String calculationPath = "resourses/calculation.txt";
     static String[] temp;
-    static String[] digits = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
+    static final String[] digits = {"0", "1", "2", "3", "4", "5", "6", "7", "8"};
+    private static String[] inputArray;
+    private static String[] outputArray;
 
-    private String numberGetter() throws IOException {
-        boolean isCorrectDigit;
+
+    private static void inputSetter() throws IOException {
 
         if (!Files.exists(Paths.get(path))) {
             throw new FileNotFoundException("Wrong path selected!");
@@ -21,62 +22,86 @@ public class Calculator {
 
         try (FileReader reader = new FileReader(path);
              Scanner scanner = new Scanner(reader)) {
-            temp = scanner.nextLine().trim().split("");
-            for (String digit : temp) {
-                isCorrectDigit = false;
-                for (String correctDigit : digits) {
-                    if (digit.equals(correctDigit)) {
-                        isCorrectDigit = true;
-                        break;
-                    }
-                }
-                if (!isCorrectDigit) {
-                    return null;
-                }
-            }
-            StringBuilder result = new StringBuilder();
-            for (String num : temp) {
-                result.append(num);
-            }
-            return result.toString();
+            temp = scanner.nextLine().trim().split("\n");
+            inputArray = temp;
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public Integer decimalCalculation() throws Exception {
-        String num = numberGetter();
-        if (num == null) {
+    public static void calculateInputs() throws Exception {
+
+        if (inputArray == null) {
             throw new Exception("Invalid value");
         }
+        boolean isCorrectNum;
+        String[] splitNum;
+        String[] output = new String[inputArray.length];
+        int scale;
+        long resultNum = 0;
 
-        String[] numArr = num.split("");
-        Integer maxNum = null;
-        int digit;
-        for (String s : numArr) {
-            digit = Integer.parseInt(s);
-            if (maxNum == null || digit > maxNum) {
-                maxNum = digit;
+        for (int i = 0; i < inputArray.length; i++) {
+            isCorrectNum = false;
+            splitNum = inputArray[i].split("");
+            for (int j = 0; j < splitNum.length; j++) {
+                for (String digit : digits) {
+                    if (splitNum[j].equals(digit)) {
+                        isCorrectNum = true;
+                        break;
+                    }
+                }
+                if (!isCorrectNum) {
+                    output[i] = "Invalid";
+                    break;
+                }
+            }
+            if (isCorrectNum) {
+                scale = findMaxScale(splitNum);
+                long addedNumber;
+                for (int j = splitNum.length - 1; j > 0; j--) {
+                    addedNumber = Integer.parseInt(splitNum[j]);
+                    resultNum += (int) (addedNumber * Math.pow(scale, i));
+                    if (resultNum > Integer.MAX_VALUE) {
+                        output[i] = "invalid (too big to convert to in Integer)";
+                        break;
+                    }
+                }
+                output[i] = String.format("%d", resultNum);
             }
         }
+        outputArray = output;
+    }
 
-        int result = 0;
-        int index = 0;
-        maxNum += 1;
-        double nextValue;
-        for (int i = numArr.length - 1; i >= 0; i--) {
-            nextValue = Integer.parseInt(numArr[i]) * Math.pow(maxNum, index);
-            if (nextValue > Integer.MAX_VALUE) {
-                throw new Exception("Number too big to convert it to int!");
-            } else {
-                result += (int) nextValue;
-                index++;
+    private static int findMaxScale(String[] splitNum) {
+        int scale = 1;
+
+        for (String digit : splitNum) {
+            int num = Integer.parseInt(digit);
+            if (num > scale) {
+                scale = num;
             }
         }
-        if (result < 0) {
-            throw new Exception("Number too big to convert it to int!");
+        return scale + 1;
+    }
+
+    public static void calculatorReport() throws Exception {
+        inputSetter();
+        calculateInputs();
+        String[] calculationArray = new String[inputArray.length];
+
+        for (int i = 0; i < inputArray.length; i++) {
+            calculationArray[i] = String.format("%s = %s", inputArray[i], outputArray[i]);
         }
-        return result;
+
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(calculationPath))) {
+
+            out.writeObject(calculationArray);
+            out.flush();
+
+        } catch (IOException ex) {
+            System.out.print("Something gone wrong!");
+        }
     }
 
 }

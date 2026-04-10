@@ -12,7 +12,7 @@ public class Calc {
         Scanner scanner = new Scanner(System.in);
         String[] mathProblem = scanner.nextLine().trim().split("");
         String[] mathArray = new String[mathProblem.length];
-        String[] digitsArray = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
+        String[] digitsArray = {"0", "1", "2", "3", "4", "5", "6", "7", "8","9"};
 
         String realNumber = "";
         boolean numFound;
@@ -38,6 +38,8 @@ public class Calc {
                 }
             }
         }
+
+
 
         boolean operatorFound = false;
         for (String character : mathArray) {
