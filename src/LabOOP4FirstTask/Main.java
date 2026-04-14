@@ -6,7 +6,7 @@ import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class Main {
-    static String path = "resourses/text2.txt";
+    static String path = "resourses/task.txt";
     static String[] temp;
 
     static Long numCounter() throws IOException {

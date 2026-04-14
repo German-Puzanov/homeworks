@@ -6,8 +6,7 @@ import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class Calculator {
-    static String path = "resourses/text2.txt";
-    static final String calculationPath = "resourses/calculation.txt";
+    static String path = "resourses/task.txt";
     static final String[] digits = {"0", "1", "2", "3", "4", "5", "6", "7", "8"};
     private static String[] inputArray;
     private static String[] outputArray;
@@ -120,7 +119,7 @@ public class Calculator {
             calculation.append(String.format("%s = %s\n", inputArray[i], outputArray[i]));
         }
 
-        try (FileWriter out = new FileWriter(calculationPath)) {
+        try (FileWriter out = new FileWriter(path)) {
             out.write(calculation.toString());
             out.flush();
         } catch (IOException ex) {
