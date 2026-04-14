@@ -3,13 +3,11 @@ package LabOOP4SecondTask;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Calculator {
     static String path = "resourses/text2.txt";
     static final String calculationPath = "resourses/calculation.txt";
-    static String temp;
     static final String[] digits = {"0", "1", "2", "3", "4", "5", "6", "7", "8"};
     private static String[] inputArray;
     private static String[] outputArray;
@@ -52,7 +50,7 @@ public class Calculator {
         }
     }
 
-    public static void calculateInputs() {
+    public static void outputSetter() {
 
         boolean isCorrectNum;
         String[] splitNum;
@@ -63,10 +61,10 @@ public class Calculator {
         for (int i = 0; i < inputArray.length; i++) {
             isCorrectNum = false;
             splitNum = inputArray[i].split("");
-            for (int j = 0; j < splitNum.length; j++) {
+            for (String s : splitNum) {
                 isCorrectNum = false;
                 for (String digit : digits) {
-                    if (splitNum[j].equals(digit)) {
+                    if (s.equals(digit)) {
                         isCorrectNum = true;
                         break;
                     }
@@ -115,7 +113,7 @@ public class Calculator {
 
     public void calculatorReport() throws Exception {
         inputSetter();
-        calculateInputs();
+        outputSetter();
         StringBuilder calculation = new StringBuilder();
 
         for (int i = 0; i < inputArray.length; i++) {
