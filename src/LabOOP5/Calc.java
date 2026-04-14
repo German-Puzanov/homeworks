@@ -1,4 +1,4 @@
-package LabOOP5FirstTask;
+package LabOOP5;
 
 import java.util.Scanner;
 import java.util.Stack;

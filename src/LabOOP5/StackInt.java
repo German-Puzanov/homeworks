@@ -1,4 +1,4 @@
-package LabOOP5FirstTask;
+package LabOOP5;
 
 public class StackInt implements LIFO {
     Integer[] stackList = new Integer[0];
