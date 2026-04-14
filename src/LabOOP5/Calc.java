@@ -12,7 +12,7 @@ public class Calc {
         Scanner scanner = new Scanner(System.in);
         String[] mathProblem = scanner.nextLine().trim().split("");
         String[] mathArray = new String[mathProblem.length];
-        String[] digitsArray = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9","-"};
+        String[] digitsArray = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "-"};
 
         StringBuilder realNumber = new StringBuilder();
         boolean numFound;
@@ -40,7 +40,7 @@ public class Calc {
             }
         }
 
-
+        long resultOfOperation;
         boolean operatorFound = false;
         for (String character : mathArray) {
             if (character == null) {
@@ -74,9 +74,30 @@ public class Calc {
                     String operator = operators.pop();
                     int firstNum = numbers.pop();
                     switch (operator) {
-                        case "+" -> numbers.push(firstNum + secondNum);
-                        case "-" -> numbers.push(firstNum - secondNum);
-                        case "*" -> numbers.push(firstNum * secondNum);
+                        case "+":
+                            resultOfOperation = (long) firstNum + secondNum;
+                            if (resultOfOperation > Integer.MAX_VALUE || resultOfOperation <= Integer.MIN_VALUE) {
+                                throw new Exception("Too big or too small to convert to Integer!");
+                            } else {
+                                numbers.push((int) resultOfOperation);
+                            }
+                            break;
+                        case "-":
+                            resultOfOperation = (long) firstNum - secondNum;
+                            if (resultOfOperation > Integer.MAX_VALUE || resultOfOperation <= Integer.MIN_VALUE) {
+                                throw new Exception("Too big or too small to convert to Integer!");
+                            } else {
+                                numbers.push((int) resultOfOperation);
+                            }
+                            break;
+                        case "*":
+                            resultOfOperation = (long) firstNum * secondNum;
+                            if (resultOfOperation > Integer.MAX_VALUE || resultOfOperation <= Integer.MIN_VALUE) {
+                                throw new Exception("Too big or too small to convert to Integer!");
+                            } else {
+                                numbers.push((int) resultOfOperation);
+                            }
+                            break;
                     }
                 }
             }
