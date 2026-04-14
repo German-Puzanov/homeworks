@@ -5,6 +5,7 @@ public class StackInt implements LIFO {
 
     @Override
     public void push(Integer num) {
+        if (num == null) throw new IllegalArgumentException("you cant push null!");
         int stackLength = this.stackList.length;
         Integer[] newStackList = new Integer[stackLength + 1];
         for (int n = 0; n < stackList.length; n++) {

@@ -12,16 +12,17 @@ public class Calc {
         Scanner scanner = new Scanner(System.in);
         String[] mathProblem = scanner.nextLine().trim().split("");
         String[] mathArray = new String[mathProblem.length];
-        String[] digitsArray = {"0", "1", "2", "3", "4", "5", "6", "7", "8","9"};
+        String[] digitsArray = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9","-"};
 
-        String realNumber = "";
+        StringBuilder realNumber = new StringBuilder();
         boolean numFound;
         int index = 0;
+
         for (String s : mathProblem) {
             numFound = false;
             for (String string : digitsArray) {
                 if (s.equals(string)) {
-                    realNumber += s;
+                    realNumber.append(s);
                     numFound = true;
                     break;
                 }
@@ -31,14 +32,13 @@ public class Calc {
                     mathArray[index] = s;
                     index++;
                 } else {
-                    mathArray[index] = realNumber;
+                    mathArray[index] = realNumber.toString();
                     mathArray[index + 1] = s;
                     index += 2;
-                    realNumber = "";
+                    realNumber = new StringBuilder();
                 }
             }
         }
-
 
 
         boolean operatorFound = false;
@@ -47,7 +47,7 @@ public class Calc {
                 continue;
             }
             if (character.equals("-") || character.equals("+") || character.equals("*")) {
-                if (operatorFound) throw new Exception("Illegal statement!");
+                if (operatorFound || numbers.stackList.length == 0) throw new Exception("Illegal statement!");
                 operators.push(character);
                 operatorFound = true;
                 continue;
@@ -55,6 +55,7 @@ public class Calc {
             operatorFound = false;
             try {
                 int number = Integer.parseInt(character);
+                if (openBrackets.isEmpty()) throw new Exception("Illegal statement!");
                 numbers.push(number);
             } catch (NumberFormatException e) {
 
@@ -80,7 +81,7 @@ public class Calc {
                 }
             }
         }
-        if (openBrackets.isEmpty() && numbers.peek() != null) {
+        if (openBrackets.isEmpty() && numbers.peek() != null && numbers.stackList.length == 1) {
             System.out.println(numbers.peek());
         } else {
             throw new Exception("Illegal statement!");
