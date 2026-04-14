@@ -44,7 +44,7 @@ public class Calc {
         boolean operatorFound = false;
         for (String character : mathArray) {
             if (character == null) {
-                continue;
+                break;
             }
             if (character.equals("-") || character.equals("+") || character.equals("*")) {
                 if (operatorFound || numbers.stackList.length == 0) throw new Exception("Illegal statement!");
