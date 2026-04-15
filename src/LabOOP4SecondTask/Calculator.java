@@ -12,7 +12,11 @@ public class Calculator {
     private static String[] outputArray;
 
 
-    private static void inputSetter() throws IOException {
+    public String getPath(){
+        return path;
+    }
+
+    private void inputSetter() throws IOException {
         int length = 0;
         if (!Files.exists(Paths.get(path))) {
             throw new FileNotFoundException("Wrong path selected!");
@@ -21,7 +25,7 @@ public class Calculator {
         try (FileReader reader = new FileReader(path); Scanner scanner = new Scanner(reader)) {
             String line;
             while (scanner.hasNextLine()) {
-                line = scanner.nextLine();
+                line = scanner.nextLine().trim();
                 if (!line.isBlank()){
                     length++;
                 }
@@ -36,7 +40,7 @@ public class Calculator {
             int index = 0;
             String[] input = new String[length];
             while (scanner.hasNextLine()) {
-                line = scanner.nextLine();
+                line = scanner.nextLine().trim();
                 if (!line.isBlank()){
                     input[index] = line;
                     index++;
@@ -49,7 +53,7 @@ public class Calculator {
         }
     }
 
-    public static void outputSetter() {
+    public void outputSetter() {
 
         boolean isCorrectNum;
         String[] splitNum;
@@ -69,7 +73,7 @@ public class Calculator {
                     }
                 }
                 if (!isCorrectNum) {
-                    output[i] = "Invalid value (contains not only digits)";
+                    output[i] = "Invalid value (contains not valid symbols)";
                     break;
                 }
             }
@@ -98,7 +102,7 @@ public class Calculator {
         outputArray = output;
     }
 
-    private static int findMaxScale(String[] splitNum) {
+    private int findMaxScale(String[] splitNum) {
         int scale = 1;
 
         for (String digit : splitNum) {

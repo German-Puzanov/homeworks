@@ -1,0 +1,7 @@
+1000 = 8
+1000 = 8
+0100 = 4
+aa = Invalid value (contains not valid symbols)
+100 100 = Invalid value (contains not valid symbols)
+20 = 6
+100000000000000000000000000000000000000000000 = invalid value (too big to convert to Integer)
