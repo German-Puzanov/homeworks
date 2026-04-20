@@ -19,7 +19,7 @@ public class Main {
                 continue;
             }
             switch (command[0]) {
-                case "IN," -> {
+                case "IN,", "IN", "in,", "in" -> {
                     onParking = false;
                     try {
                         for (Car car : parkingCars) {
@@ -36,7 +36,7 @@ public class Main {
                         System.out.println(e.getMessage());
                     }
                 }
-                case "OUT," -> {
+                case "OUT,", "OUT", "out,", "out" -> {
                     onParking = false;
                     for (Car car : parkingCars) {
                         if (car.getNumber().equals(command[1])) {
@@ -49,7 +49,7 @@ public class Main {
                         System.out.println("Error: The car had already left the parking or hadn't ever been in the parking");
                     }
                 }
-                case "search" -> {
+                case "search", "SEARCH", "search,", "SEARCH," -> {
                     onParking = false;
                     for (Car car : parkingCars) {
                         if (car.getNumber().equals(command[1])) {
@@ -65,7 +65,7 @@ public class Main {
                 }
                 default -> System.out.println("Invalid command, please try again");
             }
-        } while (command[0] == null || !command[0].equalsIgnoreCase("stop"));
+        } while (true);
 
         if (parkingCars.isEmpty()) {
             System.out.println("Parking is empty");
@@ -74,6 +74,5 @@ public class Main {
                 System.out.println(car);
             }
         }
-
     }
 }
