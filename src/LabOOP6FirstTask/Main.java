@@ -28,8 +28,8 @@ public class Main {
                             search(command[1]);
                             continue;
                         }
-                        case "left" -> left(command[1]);
-                        case "right" -> right(command[1]);
+                        case "left" -> rotate(command[1], -1);
+                        case "right" -> rotate(command[1], 1);
                         default -> {
                             System.out.println("Error: Invalid command");
                             continue;
@@ -88,30 +88,18 @@ public class Main {
         }
     }
 
-    private static void left(String stp) {
+    private static void rotate(String stp, int dir) {
         try {
             int step = Integer.parseInt(stp);
             ArrayList<Integer> rotateList = new ArrayList<>(list);
             list.clear();
             for (int i = 0; i < rotateList.size(); i++) {
-                push(String.format("%d", Math.abs(i - step) % rotateList.size()), String.format("%d", rotateList.get(i)));
+                push(String.format("%d", Math.abs(i + step * dir) % rotateList.size()), String.format("%d", rotateList.get(i)));
             }
         } catch (NumberFormatException e) {
             System.out.println("Error: Invalid left argument!");
         }
     }
 
-    private static void right(String stp) {
-        try {
-            int step = Integer.parseInt(stp);
-            ArrayList<Integer> rotateList = new ArrayList<>(list);
-            list.clear();
-            for (int i = 0; i < rotateList.size(); i++) {
-                push(String.format("%d", Math.abs(i + step) % rotateList.size()), String.format("%d", rotateList.get(i)));
-            }
-        } catch (NumberFormatException e) {
-            System.out.println("Error: Invalid right argument!");
-        }
-    }
 }
 
