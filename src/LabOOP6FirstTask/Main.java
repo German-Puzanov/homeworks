@@ -39,15 +39,15 @@ public class Main {
                 case 3:
                     if (command[0].equals("push")) {
                         push(command[1], command[2]);
+                        System.out.println(list);
+                        continue;
                     } else {
                         System.out.println("Error: Invalid command");
                     }
                     break;
                 default:
                     System.out.println("Error: Invalid command");
-                    continue;
             }
-            System.out.println(list);
         }
 
     }
@@ -70,6 +70,7 @@ public class Main {
         try {
             Integer num = Integer.parseInt(number);
             list.remove(num);
+            System.out.println(list);
         } catch (NumberFormatException e) {
             System.out.println("Error: Invalid pop argument!");
         }
@@ -96,6 +97,7 @@ public class Main {
             for (int i = 0; i < rotateList.size(); i++) {
                 push(String.format("%d", Math.abs(i + step * dir) % rotateList.size()), String.format("%d", rotateList.get(i)));
             }
+            System.out.println(list);
         } catch (NumberFormatException e) {
             System.out.println("Error: Invalid left argument!");
         }
