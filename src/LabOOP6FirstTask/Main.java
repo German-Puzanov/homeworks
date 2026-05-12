@@ -28,8 +28,8 @@ public class Main {
                             search(command[1]);
                             continue;
                         }
-                        case "left" -> rotate(command[1], -1);
-                        case "right" -> rotate(command[1], 1);
+                        case "left" -> rotate(command[1], "left");
+                        case "right" -> rotate(command[1], "right");
                         default -> {
                             System.out.println("Error: Invalid command");
                             continue;
@@ -61,7 +61,7 @@ public class Main {
             } else {
                 list.add(idx, num);
             }
-        } catch (NumberFormatException e) {
+        } catch (IndexOutOfBoundsException | NumberFormatException e) {
             System.out.println("Error: Invalid push argument!");
         }
     }
@@ -89,17 +89,26 @@ public class Main {
         }
     }
 
-    private static void rotate(String stp, int dir) {
+    private static void rotate(String stp, String dir) {
         try {
-            int step = Integer.parseInt(stp);
+            if (list.isEmpty()) return;
+            int step = Integer.parseInt(stp) % list.size();
+            int size = list.size();
             ArrayList<Integer> rotateList = new ArrayList<>(list);
-            list.clear();
+            int newIndex;
             for (int i = 0; i < rotateList.size(); i++) {
-                push(String.format("%d", Math.abs(i + step * dir) % rotateList.size()), String.format("%d", rotateList.get(i)));
+                if (dir.equalsIgnoreCase("left")) {
+                    newIndex = (i - step + size) % size;
+                } else {
+                    newIndex = (i + step) % size;
+                }
+                rotateList.set(newIndex, list.get((i)));
             }
+            list.clear();
+            list.addAll(rotateList);
             System.out.println(list);
         } catch (NumberFormatException e) {
-            System.out.println("Error: Invalid left argument!");
+            System.out.println("Error: Invalid rotate argument!");
         }
     }
 
