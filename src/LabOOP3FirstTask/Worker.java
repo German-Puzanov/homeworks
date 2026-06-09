@@ -12,6 +12,6 @@ public class Worker extends BasePerson{
 
     @Override
     public String toString() {
-        return String.format("%s works", getName());
+        return String.format("%s (%s) works", getName(), getEmployment());
     }
 }

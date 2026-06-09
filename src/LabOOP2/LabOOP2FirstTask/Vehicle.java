@@ -1,4 +1,4 @@
-package LabOOP2.LabOOP2SecondTask.LabOOP2FirstTask;
+package LabOOP2.LabOOP2FirstTask;
 
 public class Vehicle {
     protected int passengers;
@@ -13,7 +13,7 @@ public class Vehicle {
             throw new IllegalArgumentException("No passengers!");
         }
         if(passengers < 0){
-            throw new IllegalArgumentException("Invalid negative number! Argument oars count");
+            throw new IllegalArgumentException("Invalid negative number! Argument passengers");
         }
         this.passengers = passengers;
     }

@@ -1,7 +1,7 @@
 package LabOOP1;
 
 public class Icosahedron {
-    private int edge;
+    private final int edge;
 
     public Icosahedron(int inputEdge) {
         this.edge = Math.abs(inputEdge);

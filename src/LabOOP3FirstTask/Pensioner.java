@@ -12,7 +12,7 @@ public class Pensioner extends  BasePerson{
 
     @Override
     public String toString() {
-        return String.format("%s is resting", getName());
+        return String.format("%s (%s) is resting",getName(), getEmployment());
     }
 
 

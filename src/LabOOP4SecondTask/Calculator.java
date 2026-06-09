@@ -6,7 +6,7 @@ import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class Calculator {
-    static String path = "resourses/task.txt";
+    private static final String path = "resourses/task.txt";
     static final String[] digits = {"0", "1", "2", "3", "4", "5", "6", "7", "8"};
     private static String[] inputArray;
     private static String[] outputArray;

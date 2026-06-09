@@ -12,6 +12,6 @@ public class Student extends BasePerson{
 
     @Override
     public String toString() {
-        return String.format("%s study", getName());
+        return String.format("%s (%s) study", getName(), getEmployment());
     }
 }
